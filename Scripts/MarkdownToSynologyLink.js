@@ -20,8 +20,8 @@ function main(state) {
         // Use selection if available, otherwise fullText.
 		const input = state.selection || state.fullText;
         // Set the entire editor text to the CSV output.
-    input.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<$2|$1>');
-		state.fullText = input;
+    const output = input.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<$2|$1>');
+		state.fullText = output;
 	}
 	catch(error) {
 		state.postError("Explain what went wrong here: " + error.message);
